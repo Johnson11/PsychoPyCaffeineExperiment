@@ -45,12 +45,12 @@
     </Routine>
     <Routine name="DistanceCheck">
       <CodeComponent name="codeDistanceCheck">
-        <Param name="Begin Experiment" val="ScreenH = 34.5&#10;ScreenV = 19&#10;DISTANCE = 1.0&#10;&#10;YPOS = DISTANCE&#10;XPOS = (YPOS*ScreenV)/ScreenH&#10;&#10;&#10;W = 0.05&#10;H = 0.075&#10;&#10;my_time = 0&#10;String = []&#10;String.append(expInfo['participant'])&#10;&#10;newString = &quot;./DISTANCES/%s&quot;%expInfo['participant']&#10;with open(newString) as f:&#10;    NR = float(f.readline())&#10;&#10;print DISTANCE,NR,&quot;##############&quot;&#10;YPOS = NR&#10;XPOS = (YPOS*ScreenV)/ScreenH&#10;if YPOS == 1.0:&#10;    print &quot;ERROR!&quot;&#10;    win.close()&#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="ScreenH = 34.5&#10;ScreenV = 19&#10;DISTANCE = 1.0&#10;&#10;YPOS = DISTANCE&#10;XPOS = (YPOS*ScreenV)/ScreenH&#10;&#10;&#10;W = 0.05&#10;H = 0.075&#10;&#10;my_time = 0&#10;String = []&#10;String.append(expInfo['participant'])&#10;&#10;newString = &quot;./DISTANCES/%s&quot;%expInfo['participant']&#10;with open(newString) as f:&#10;    NR = float(f.readline())&#10;&#10;print DISTANCE,NR,&quot;##############&quot;&#10;YPOS = NR&#10;XPOS = (YPOS*ScreenV)/ScreenH&#10;if YPOS == 1.0:&#10;    print &quot;ERROR!&quot;&#10;    win.close()&#10;    core.quit()&#10;&#10;JustinClock = core.Clock()" valType="extendedCode" updates="constant"/>
         <Param name="name" val="codeDistanceCheck" valType="code" updates="None"/>
-        <Param name="Each Frame" val="if key_resp_3.status == STARTED:&#10;    theseKeys = event.getKeys(keyList=['space'])&#10;    if len(theseKeys) &gt; 0:  # at least one key was pressed&#10;        key_resp_3.keys = theseKeys[-1]  # just the last key pressed&#10;        time_tmp = my_time+DistanceCheckClock.getTime()&#10;        String.append(str(time_tmp))&#10;&#10;" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if key_resp_3.status == STARTED:&#10;    theseKeys = event.getKeys(keyList=['space'])&#10;    if len(theseKeys) &gt; 0:  # at least one key was pressed&#10;        key_resp_3.keys = theseKeys[-1]  # just the last key pressed&#10;        time_tmp = my_time+JustinClock.getTime()&#10;        String.append(str(time_tmp))&#10;&#10;" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="my_time = my_time + 0.8" valType="extendedCode" updates="constant"/>
-        <Param name="End Experiment" val="with open(&quot;./TIMES/CoffeeTimesFinal&quot;, &quot;a&quot;) as myfile:&#10;            String.append(&quot;\n&quot;)&#10;            finalString = ','.join(String)&#10;            myfile.write(finalString)&#10;&#10;" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
       </CodeComponent>
       <ImageComponent name="blockLU">
         <Param name="opacity" val="1" valType="code" updates="constant"/>
@@ -183,6 +183,42 @@
         <Param name="store" val="last key" valType="str" updates="constant"/>
       </KeyboardComponent>
     </Routine>
+    <Routine name="HorzVert">
+      <RatingScaleComponent name="rating">
+        <Param name="pos" val="0, -0.4" valType="str" updates="constant"/>
+        <Param name="high" val="1" valType="code" updates="constant"/>
+        <Param name="storeRating" val="True" valType="bool" updates="constant"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="disappear" val="False" valType="bool" updates="constant"/>
+        <Param name="size" val="1.0" valType="code" updates="constant"/>
+        <Param name="choiceLabelsAboveLine" val="False" valType="bool" updates="constant"/>
+        <Param name="storeRatingTime" val="True" valType="bool" updates="constant"/>
+        <Param name="forceEndRoutine" val="True" valType="bool" updates="constant"/>
+        <Param name="low" val="0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="visualAnalogScale" val="False" valType="bool" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="lowAnchorText" val="" valType="str" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="stopType" val="condition" valType="str" updates="None"/>
+        <Param name="scaleDescription" val="" valType="str" updates="constant"/>
+        <Param name="advancedParams"/>
+        <Param name="categoryChoices" val="Horizontal, Vertical" valType="str" updates="constant"/>
+        <Param name="customize_everything" val="" valType="str" updates="constant"/>
+        <Param name="name" val="rating" valType="code" updates="None"/>
+        <Param name="singleClick" val="False" valType="bool" updates="constant"/>
+        <Param name="highAnchorText" val="" valType="str" updates="constant"/>
+      </RatingScaleComponent>
+      <CodeComponent name="code_3">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_3" valType="code" updates="None"/>
+        <Param name="Each Frame" val="save = &quot;./TIMES/%s&quot; % expInfo['participant']&#10;if rating.noResponse == False:&#10;    with open(save, &quot;a&quot;) as myfile:&#10;        String.append(rating.getRating())&#10;        String.append(&quot;\n&quot;)&#10;        finalString = ','.join(String)&#10;        myfile.write(finalString)&#10;        String = []&#10;&#10;" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="myTime = 0" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
     <Routine name="testTrial">
       <TextComponent name="text_4">
         <Param name="opacity" val="1" valType="code" updates="constant"/>
@@ -247,7 +283,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="startVal" val="0" valType="code" updates="None"/>
         <Param name="font" val="Arial" valType="str" updates="constant"/>
         <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
       </TextComponent>
@@ -266,6 +302,14 @@
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="store" val="nothing" valType="str" updates="constant"/>
       </KeyboardComponent>
+      <CodeComponent name="code_4">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_4" valType="code" updates="None"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="JustinClock.reset()" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
     </Routine>
     <Routine name="BreakScreen">
       <TextComponent name="text_3">
@@ -308,7 +352,7 @@
         <Param name="name" val="code" valType="code" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="ROUND = ROUND + 1&#10;textPause = &quot;End of Round %s. %s to go! \nTake a break and press 'Space' as soon as you are ready&quot; % (ROUND,6-ROUND)&#10;&#10;&#10;" valType="extendedCode" updates="constant"/>
-        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="JustinClock.reset()" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
       </CodeComponent>
     </Routine>
@@ -445,7 +489,7 @@
       <Param name="name" val="trials" valType="code" updates="None"/>
       <Param name="random seed" val="" valType="code" updates="None"/>
       <Param name="loopType" val="random" valType="str" updates="None"/>
-      <Param name="nReps" val="12" valType="code" updates="None"/>
+      <Param name="nReps" val="1" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
     </LoopInitiator>
@@ -466,12 +510,13 @@
       <Param name="name" val="repetitionsOfDistanceCheck" valType="code" updates="None"/>
       <Param name="random seed" val="" valType="code" updates="None"/>
       <Param name="loopType" val="random" valType="str" updates="None"/>
-      <Param name="nReps" val="112" valType="code" updates="None"/>
+      <Param name="nReps" val="2" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
     </LoopInitiator>
     <Routine name="DistanceCheck"/>
     <LoopTerminator name="repetitionsOfDistanceCheck"/>
+    <Routine name="HorzVert"/>
     <Routine name="BreakScreen"/>
     <LoopTerminator name="trialsReal"/>
     <Routine name="whatFirst"/>
