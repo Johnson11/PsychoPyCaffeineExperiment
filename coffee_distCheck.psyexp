@@ -21,6 +21,28 @@
     <Param name="Screen" val="1" valType="num" updates="None"/>
   </Settings>
   <Routines>
+    <Routine name="Thanks">
+      <TextComponent name="text_4">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="text_4" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="I'm fat and ugly" valType="str" updates="constant"/>
+        <Param name="stopVal" val="1.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
+      </TextComponent>
+    </Routine>
     <Routine name="trial">
       <StaticComponent name="ISI">
         <Param name="code" val="" valType="code" updates="None"/>
@@ -69,11 +91,11 @@
       </KeyboardComponent>
     </Routine>
     <Routine name="DistanceCheck">
-      <CodeComponent name="codeDistanceCheck">
-        <Param name="Begin Experiment" val="ScreenH = 34.5&#10;ScreenV = 19&#10;&#10;YPOS = 1.0&#10;XPOS = (YPOS*ScreenV)/ScreenH&#10;&#10;&#10;W = 0.05&#10;H = 0.075&#10;&#10;changeRate=0.025&#10;&#10;PressedOnce = 0&#10;" valType="extendedCode" updates="constant"/>
-        <Param name="name" val="codeDistanceCheck" valType="code" updates="None"/>
-        <Param name="Each Frame" val="&#10;if key_resp_3.status == STARTED:&#10;    theseKeys = event.getKeys(keyList=['space'])&#10;    if len(theseKeys) &gt; 0:  # at least one key was pressed&#10;        key_resp_3.keys = theseKeys[-1]  # just the last key pressed&#10;        if PressedOnce == 0:&#10;            PressedOnce = 1&#10;            print YPOS&#10;            name = &quot;./DISTANCES/%s&quot;%(expInfo['participant'])&#10;            with open(name, &quot;w&quot;) as myfile:&#10;                string = str(YPOS)&#10;                myfile.write(string)&#10;            repetitionsOfDistanceCheck.finished=True&#10;        else:&#10;            print &quot;ERROR! You pressd before&quot;" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="YPOS= YPOS - changeRate&#10;XPOS = (YPOS*ScreenV)/ScreenH" valType="extendedCode" updates="constant"/>
+      <CodeComponent name="codeDistanceCheckUP">
+        <Param name="Begin Experiment" val="ScreenH = 34.5&#10;ScreenV = 19&#10;&#10;YPOS = 0.1&#10;XPOS = 0.5&#10;&#10;demValues = []&#10;&#10;&#10;W = 0.05&#10;H = 0.075&#10;&#10;changeRate=0.025&#10;&#10;PressedOnce = 0&#10;" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="codeDistanceCheckUP" valType="code" updates="None"/>
+        <Param name="Each Frame" val="&#10;if key_resp_3.status == STARTED:&#10;    theseKeys = event.getKeys(keyList=['space'])&#10;    if len(theseKeys) &gt; 0:  # at least one key was pressed&#10;        key_resp_3.keys = theseKeys[-1]  # just the last key pressed&#10;        if PressedOnce == 0:&#10;            PressedOnce = 1&#10;            print YPOS&#10;            name = &quot;./DISTANCES/%s&quot;%(expInfo['participant'])&#10;            demValues.append(YPOS)&#10;            repetitionsOfDistanceCheck.finished=True&#10;        else:&#10;            print &quot;ERROR! You pressd before&quot;" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="YPOS= YPOS + changeRate" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
       </CodeComponent>
@@ -323,6 +345,6 @@
     </LoopInitiator>
     <Routine name="DistanceCheck"/>
     <LoopTerminator name="repetitionsOfDistanceCheck"/>
-    <Routine name="whatFirst"/>
+    <Routine name="Thanks"/>
   </Flow>
 </PsychoPy2experiment>
