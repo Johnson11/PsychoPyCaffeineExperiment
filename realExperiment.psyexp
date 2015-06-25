@@ -226,7 +226,7 @@
         <Param name="name" val="text_4" valType="code" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
         <Param name="color" val="white" valType="str" updates="constant"/>
-        <Param name="text" val="Welcome to our experiment.&#10;In this experiment you are asked to press the 'Space' button as soon as you detect a switch.&#10;Each trial lasts 1.5 minutes for all in all 6 trials.&#10;The following trial is a Test-Trial where you can get prepared for the experiment. The Test-Trial will be presented for 10 seconds.&#10;The distance in the Test Trial differs from the one calculated before.&#10;&#10;&#10;Press 'Space' to continue" valType="str" updates="constant"/>
+        <Param name="text" val="English:&#10;Welcome to our experiment.&#10;In this experiment you are asked to press the 'Space' button as soon as you detect a switch.&#10;Each trial lasts 1.5 minutes for all in all 6 trials.&#10;The following trial is a Test-Trial where you can get prepared for the experiment. The Test-Trial will be presented for 10 seconds.&#10;The distance in the Test Trial differs from the one calculated before.&#10;Press 'Space' to continue&#10;Deutsch:&#10;Willkommen zu unserem Experiment!&#10;Drücken Sie bitte so schnell wie möglich die 'Leertaste' sobald sie eine Veränderung in der Bewegungsrichtung sehen. &#10;Jeder Test dauert 1.5 Minuten jeweils 6 Mal.&#10;Der folgende Versuch is nur ein Test und dauert 10 Sekunden. Machen Sie sich mit dem Stimuli vertraut. &#10;Die Distanz ist jedoch nicht ihre individuelle sonder willkürlich gewählt. &#10;Viel Spaß!&#10;Drücken Sie die Leertaste um weiterzufahren." valType="str" updates="constant"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
@@ -238,7 +238,7 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="font" val="Arial" valType="str" updates="constant"/>
-        <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
+        <Param name="letterHeight" val="0.05" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="key_resp_5">
         <Param name="correctAns" val="" valType="str" updates="constant"/>
@@ -273,7 +273,7 @@
         <Param name="name" val="text" valType="code" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
         <Param name="color" val="white" valType="str" updates="constant"/>
-        <Param name="text" val="Now the real experiment starts.&#10;The changing dots will be presented in 6 trials that each last 1.5 minutes.&#10;After each trial a short break is placed. Feel free to stand up or drink in that time, and as soon as you feel ready Press 'Space' to continue.&#10;&#10;Press &quot;Space&quot; to continue&#10;&#10;" valType="str" updates="constant"/>
+        <Param name="text" val="Now the real experiment starts.&#10;The changing dots will be presented in 6 trials that each last 1.5 minutes.&#10;After each trial a short break is placed. Feel free to stand up or drink in that time, and as soon as you feel ready Press 'Space' to continue.&#10;Press &quot;Space&quot; to continue" valType="str" updates="constant"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>

@@ -26,15 +26,15 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
         <Param name="name" val="text_2" valType="code" updates="None"/>
-        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
         <Param name="color" val="white" valType="str" updates="constant"/>
-        <Param name="text" val="Which direction of the cubes moving did you see first?" valType="str" updates="constant"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="text" val="Which direction of the cubes moving did you see first?" valType="str" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
@@ -90,7 +90,6 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="blockLU" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -99,12 +98,13 @@
         <Param name="pos" val="[-XPOS, YPOS]" valType="code" updates="set every repeat"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
         <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
@@ -113,7 +113,6 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="blockRD" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -122,12 +121,13 @@
         <Param name="pos" val="[XPOS, -YPOS]" valType="code" updates="set every repeat"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
         <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
@@ -136,7 +136,6 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="blockLD" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -145,12 +144,13 @@
         <Param name="pos" val="[-XPOS, -YPOS]" valType="code" updates="set every repeat"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="startVal" val="0.4" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
         <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
@@ -159,7 +159,6 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="cubeRU" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -168,12 +167,13 @@
         <Param name="pos" val="[XPOS, YPOS]" valType="code" updates="set every repeat"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="startVal" val="0.4" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
         <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
@@ -182,7 +182,6 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="fixcross" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.8" valType="code" updates="constant"/>
@@ -191,12 +190,13 @@
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="image" val="fixcross.png" valType="str" updates="constant"/>
         <Param name="advancedParams"/>
         <Param name="size" val="[0.1, 0.1]" valType="code" updates="constant"/>
@@ -232,7 +232,6 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="blockLU2" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -241,12 +240,13 @@
         <Param name="pos" val="[-XPOS, YPOS]" valType="code" updates="set every repeat"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
         <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
@@ -255,7 +255,6 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="blockRD2" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -264,12 +263,13 @@
         <Param name="pos" val="[XPOS, -YPOS]" valType="code" updates="set every repeat"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
         <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
@@ -278,7 +278,6 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="blockLD2" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -287,12 +286,13 @@
         <Param name="pos" val="[-XPOS, -YPOS]" valType="code" updates="set every repeat"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="startVal" val="0.4" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
         <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
@@ -301,7 +301,6 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="cubeRU2" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -310,12 +309,13 @@
         <Param name="pos" val="[XPOS, YPOS]" valType="code" updates="set every frame"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="startVal" val="0.4" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
         <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
@@ -324,7 +324,6 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="image_4" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.8" valType="code" updates="constant"/>
@@ -333,12 +332,13 @@
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="image" val="fixcross.png" valType="str" updates="constant"/>
         <Param name="advancedParams"/>
         <Param name="size" val="[0.1, 0.1]" valType="code" updates="constant"/>
@@ -382,21 +382,21 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
         <Param name="name" val="text" valType="code" updates="None"/>
-        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
         <Param name="color" val="white" valType="str" updates="constant"/>
-        <Param name="text" val="With this program we are defineing your distance in which the switch occurs.&#10;Therefore you are asked to fixate the fixation cross in the middle of the screen and report to press 'Space' as soon as you see a switch.&#10;Do not press 'Space' after that but wait instead for the end of the routine.&#10;&#10;Press &quot;Space&quot; to continue&#10;&#10;" valType="str" updates="constant"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="text" val="Englisch:&#10;First of all we will define your optimal distance.&#10;Therefore you are asked to fixate the cross in the middle of the screen and report to press 'Space' as soon as you see a switch.&#10;The squares are first diverging in the vertical direction, so as soon you see horizontal movement press 'Space'.&#10;They are directly moving together, and again as soon you see a switch, so a movement into vertical direction, press 'Space'.&#10;Do not press 'Space' after that but wait instead for the end of the routine.&#10;Press &quot;Space&quot; to continue&#10;Deutsch: &#10;Zu aller erst werden wir Ihre optimale Distanz der Quadrate bestimmen.&#10;Dazu fixieren Sie bitte den Fixpunkt in der Mitte aber achten Sie trotzdem auf die vier Quadrate.&#10;Sie werden beim ersten Blick eine bestimmte Bewegungsrichtung wahrnehmen, entweder horizontal oder vertikal.&#10;Die Quadrate werden in der vertikalen Richtung auseinandergehen und sobald Sie einen Wechsel in ihrer wahrgenommenen Bewegung wahrnehmen, drücken sie schnellstmöglich die 'Leertaste'. &#10;Das Ganze wird dann ebenfalls für das Zusammenlaufen der Quarate in der vertikalen Richtung gemacht.&#10;" valType="str" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="font" val="Arial" valType="str" updates="constant"/>
-        <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
+        <Param name="letterHeight" val="0.05" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="key_resp_2">
         <Param name="correctAns" val="" valType="str" updates="constant"/>
@@ -429,15 +429,15 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
         <Param name="name" val="text_4" valType="code" updates="None"/>
-        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
         <Param name="color" val="white" valType="str" updates="constant"/>
-        <Param name="text" val="$finalText" valType="str" updates="set every repeat"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
         <Param name="stopVal" val="3" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="text" val="$finalText" valType="str" updates="set every repeat"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
@@ -459,15 +459,15 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
         <Param name="name" val="text_3" valType="code" updates="None"/>
-        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
         <Param name="color" val="white" valType="str" updates="constant"/>
-        <Param name="text" val="$textPause&#10;&#10;" valType="str" updates="set every repeat"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="text" val="$textPause&#10;&#10;" valType="str" updates="set every repeat"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
