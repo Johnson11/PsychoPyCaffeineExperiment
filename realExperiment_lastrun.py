@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy2 Experiment Builder (v1.82.01), Thu 25 Jun 2015 02:54:36 PM CEST
+This experiment was created using PsychoPy2 Experiment Builder (v1.82.01), Thu 25 Jun 2015 03:42:53 PM CEST
 If you publish work using this script please cite the relevant PsychoPy publications
   Peirce, JW (2007) PsychoPy - Psychophysics software in Python. Journal of Neuroscience Methods, 162(1-2), 8-13.
   Peirce, JW (2009) Generating stimuli for neuroscience using PsychoPy. Frontiers in Neuroinformatics, 2:10. doi: 10.3389/neuro.11.010.2008
@@ -199,6 +199,7 @@ text_2 = visual.TextStim(win=win, ori=0, name='text_2',
     pos=[0, 0], height=0.1, wrapWidth=None,
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
+
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
@@ -496,7 +497,7 @@ JustinClock.reset()
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-trialsReal = data.TrialHandler(nReps=6, method='random', 
+trialsReal = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=u'/home/justin/PsychoPy/newCoffee/PsychoPyCaffeineExperiment/realExperiment.psyexp',
     trialList=[None],
     seed=None, name='trialsReal')
@@ -581,7 +582,7 @@ for thisTrialsReal in trialsReal:
         routineTimer.reset()
         
         # set up handler to look after randomisation of conditions etc
-        repetitionsOfDistanceCheck = data.TrialHandler(nReps=113, method='random', 
+        repetitionsOfDistanceCheck = data.TrialHandler(nReps=20, method='random', 
             extraInfo=expInfo, originPath=u'/home/justin/PsychoPy/newCoffee/PsychoPyCaffeineExperiment/realExperiment.psyexp',
             trialList=[None],
             seed=None, name='repetitionsOfDistanceCheck')
@@ -735,7 +736,7 @@ for thisTrialsReal in trialsReal:
                 repetitionsOfDistanceCheck.addData('key_resp_3.rt', key_resp_3.rt)
             thisExp.nextEntry()
             
-        # completed 113 repeats of 'repetitionsOfDistanceCheck'
+        # completed 20 repeats of 'repetitionsOfDistanceCheck'
         
         
         #------Prepare to start Routine "BreakScreen"-------
@@ -825,7 +826,7 @@ for thisTrialsReal in trialsReal:
     
     thisExp.nextEntry()
     
-# completed 6 repeats of 'trialsReal'
+# completed 1 repeats of 'trialsReal'
 
 
 #------Prepare to start Routine "whatFirst"-------
@@ -834,6 +835,7 @@ whatFirstClock.reset()  # clock
 frameN = -1
 routineTimer.add(5.000000)
 # update component parameters for each repeat
+
 # keep track of which components have finished
 whatFirstComponents = []
 whatFirstComponents.append(text_2)
@@ -857,6 +859,7 @@ while continueRoutine and routineTimer.getTime() > 0:
         text_2.setAutoDraw(True)
     if text_2.status == STARTED and t >= (0.0 + (5.0-win.monitorFramePeriod*0.75)): #most of one frame period left
         text_2.setAutoDraw(False)
+    
     
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -884,5 +887,12 @@ for thisComponent in whatFirstComponents:
 
 
 
+
+with open("./TIMES/CoffeExpTimes", "a") as myfile:
+    finalString = ', '.join(String)
+    tmp2 = "%s,"%expInfo['date']
+    myfile.write(tmp2)
+    myfile.write(finalString)
+    myfile.write("\n")
 win.close()
 core.quit()

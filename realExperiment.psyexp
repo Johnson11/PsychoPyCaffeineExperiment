@@ -43,6 +43,14 @@
         <Param name="font" val="Arial" valType="str" updates="constant"/>
         <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
       </TextComponent>
+      <CodeComponent name="speichercode">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="speichercode" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="with open(&quot;./TIMES/CoffeExpTimes&quot;, &quot;a&quot;) as myfile:&#10;    finalString = ', '.join(String)&#10;    tmp2 = &quot;%s,&quot;%expInfo['date']&#10;    myfile.write(tmp2)&#10;    myfile.write(finalString)&#10;    myfile.write(&quot;\n&quot;)" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
     </Routine>
     <Routine name="DistanceCheck">
       <CodeComponent name="codeDistanceCheck">
@@ -507,7 +515,7 @@
       <Param name="isTrials" val="True" valType="bool" updates="None"/>
       <Param name="random seed" val="" valType="code" updates="None"/>
       <Param name="loopType" val="random" valType="str" updates="None"/>
-      <Param name="nReps" val="6" valType="code" updates="None"/>
+      <Param name="nReps" val="1" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
       <Param name="Selected rows" val="" valType="str" updates="None"/>
@@ -518,7 +526,7 @@
       <Param name="isTrials" val="True" valType="bool" updates="None"/>
       <Param name="random seed" val="" valType="code" updates="None"/>
       <Param name="loopType" val="random" valType="str" updates="None"/>
-      <Param name="nReps" val="1" valType="code" updates="None"/>
+      <Param name="nReps" val="6" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
       <Param name="Selected rows" val="" valType="str" updates="None"/>
@@ -530,7 +538,7 @@
       <Param name="isTrials" val="True" valType="bool" updates="None"/>
       <Param name="random seed" val="" valType="code" updates="None"/>
       <Param name="loopType" val="random" valType="str" updates="None"/>
-      <Param name="nReps" val="113" valType="code" updates="None"/>
+      <Param name="nReps" val="112" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
       <Param name="Selected rows" val="" valType="str" updates="None"/>
