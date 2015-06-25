@@ -1,7 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy2 Experiment Builder (v1.79.01), Do 25 Jun 2015 13:45:23 CEST
+This experiment was created using PsychoPy2 Experiment Builder (v1.79.01), Thu 25 Jun 2015 01:55:24 PM CEST
 If you publish work using this script please cite the relevant PsychoPy publications
   Peirce, JW (2007) PsychoPy - Psychophysics software in Python. Journal of Neuroscience Methods, 162(1-2), 8-13.
   Peirce, JW (2009) Generating stimuli for neuroscience using PsychoPy. Frontiers in Neuroinformatics, 2:10. doi: 10.3389/neuro.11.010.2008
@@ -15,6 +15,10 @@ from numpy import sin, cos, tan, log, log10, pi, average, sqrt, std, deg2rad, ra
 from numpy.random import random, randint, normal, shuffle
 import os  # handy system and path functions
 
+# Ensure that relative paths start from the same directory as this script
+_thisDir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(_thisDir)
+
 # Store info about the experiment session
 expName = 'coffee_distCheck'  # from the Builder filename that created this script
 expInfo = {'participant':'', 'session':'001'}
@@ -23,12 +27,8 @@ if dlg.OK == False: core.quit()  # user pressed cancel
 expInfo['date'] = data.getDateStr()  # add a simple timestamp
 expInfo['expName'] = expName
 
-# Setup files for saving
-if not os.path.isdir('data'):
-    os.makedirs('data')  # if this fails (e.g. permissions) we will get error
-filename = 'data' + os.path.sep + '%s_%s' %(expInfo['participant'], expInfo['date'])
-logFile = logging.LogFile(filename+'.log', level=logging.EXP)
-logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
+# Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
+filename = _thisDir + os.sep + u'data' + os.sep + '%s_%s' %(expInfo['participant'], expInfo['date'])
 
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
@@ -36,12 +36,19 @@ thisExp = data.ExperimentHandler(name=expName, version='',
     originPath=u'/home/justin/PsychoPy/newCoffee/PsychoPyCaffeineExperiment/coffee_distCheck.psyexp',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
+#save a log file for detail verbose info
+logFile = logging.LogFile(filename+'.log', level=logging.EXP)
+logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
+
+endExpNow = False  # flag for 'escape' or other condition => quit the exp
 
 # Start Code - component code to be run before the window creation
 
 # Setup the Window
 win = visual.Window(size=(1366, 768), fullscr=True, screen=0, allowGUI=True, allowStencil=False,
-    monitor='testMonitor', color=[0,0,0], colorSpace='rgb')
+    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
+    blendMode='avg', useFBO=True,
+    )
 # store frame rate of monitor if we can measure it successfully
 expInfo['frameRate']=win.getActualFrameRate()
 if expInfo['frameRate']!=None:
@@ -53,9 +60,9 @@ else:
 trialClock = core.Clock()
 ISI = core.StaticPeriod(win=win, screenHz=expInfo['frameRate'], name='ISI')
 text = visual.TextStim(win=win, ori=0, name='text',
-    text=u'Englisch:\nFirst of all we will define your optimal distance.\nTherefore you are asked to fixate the cross in the middle of the screen and report to press \'Space\' as soon as you see a switch.\nThe squares are first diverging in the vertical direction, so as soon you see horizontal movement press \'Space\'.\nThey are directly moving together, and again as soon you see a switch, so a movement into vertical direction, press \'Space\'.\nDo not press \'Space\' after that but wait instead for the end of the routine.\nPress "Space" to continue\nDeutsch: \nZu aller erst werden wir Ihre optimale Distanz der Quadrate bestimmen.\nDazu fixieren Sie bitte den Fixpunkt in der Mitte aber achten Sie trotzdem auf die vier Quadrate.\nSie werden beim ersten Blick eine bestimmte Bewegungsrichtung wahrnehmen, entweder horizontal oder vertikal.\nDie Quadrate werden in der vertikalen Richtung auseinandergehen und sobald Sie einen Wechsel in ihrer wahrgenommenen Bewegung wahrnehmen, dr\xfccken sie schnellstm\xf6glich die \'Leertaste\'. \nDas Ganze wird dann ebenfalls f\xfcr das Zusammenlaufen der Quarate in der vertikalen Richtung gemacht.\n',    font=u'Arial',
+    text=u'Englisch:\nFirst of all we will define your optimal distance.\nTherefore you are asked to fixate the cross in the middle of the screen and report to press \'Space\' as soon as you see a switch.\nThe squares are first diverging in the vertical direction, so as soon you see horizontal movement press \'Space\'.\nThey are directly moving together, and again as soon you see a switch, so a movement into vertical direction, press \'Space\'.\nDo not press \'Space\' after that but wait instead for the end of the routine.\nPress "Space" to continue\nDeutsch: \nZu aller erst werden wir Ihre optimale Distanz der Quadrate bestimmen.\nDazu fixieren Sie bitte den Fixpunkt in der Mitte aber achten Sie trotzdem auf die vier Quadrate.\nSie werden beim ersten Blick eine bestimmte Bewegungsrichtung wahrnehmen, entweder horizontal oder vertikal.\nDie Quadrate werden in der vertikalen Richtung auseinandergehen und sobald Sie einen Wechsel in ihrer wahrgenommenen Bewegung wahrnehmen, dr\xfccken sie schnellstm\xf6glich die \'Leertaste\'. \nDas Ganze wird dann ebenfalls f\xfcr das Zusammenlaufen der Quarate in der vertikalen Richtung gemacht.\n',    font='Arial',
     pos=[0, 0], height=0.05, wrapWidth=None,
-    color=u'white', colorSpace=u'rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0)
 
 # Initialize components for Routine "resetRoutine"
@@ -69,7 +76,8 @@ ScreenV = 19
 
 
 YPOS = 0.1
-XPOS = 0.5
+XPOS = 0.3
+
 
 demValues = []
 
@@ -85,26 +93,31 @@ blockLU = visual.ImageStim(win=win, name='blockLU',
     image='cube.png', mask=None,
     ori=0, pos=[0,0], size=[W, H],
     color=[1,1,1], colorSpace='rgb', opacity=1,
+    flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-1.0)
 blockRD = visual.ImageStim(win=win, name='blockRD',
     image='cube.png', mask=None,
     ori=0, pos=[0,0], size=[W, H],
     color=[1,1,1], colorSpace='rgb', opacity=1,
+    flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-2.0)
 blockLD = visual.ImageStim(win=win, name='blockLD',
     image='cube.png', mask=None,
     ori=0, pos=[0,0], size=[W, H],
     color=[1,1,1], colorSpace='rgb', opacity=1,
+    flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-3.0)
 cubeRU = visual.ImageStim(win=win, name='cubeRU',
     image='cube.png', mask=None,
     ori=0, pos=[0,0], size=[W, H],
     color=[1,1,1], colorSpace='rgb', opacity=1,
+    flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-4.0)
 fixcross = visual.ImageStim(win=win, name='fixcross',
     image='fixcross.png', mask=None,
     ori=0, pos=[0, 0], size=[0.1, 0.1],
     color=[1,1,1], colorSpace='rgb', opacity=1,
+    flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-5.0)
 
 # Initialize components for Routine "resetRoutine2"
@@ -117,33 +130,38 @@ blockLU2 = visual.ImageStim(win=win, name='blockLU2',
     image='cube.png', mask=None,
     ori=0, pos=[0,0], size=[W, H],
     color=[1,1,1], colorSpace='rgb', opacity=1,
+    flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=0.0)
 blockRD2 = visual.ImageStim(win=win, name='blockRD2',
     image='cube.png', mask=None,
     ori=0, pos=[0,0], size=[W, H],
     color=[1,1,1], colorSpace='rgb', opacity=1,
+    flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-1.0)
 blockLD2 = visual.ImageStim(win=win, name='blockLD2',
     image='cube.png', mask=None,
     ori=0, pos=[0,0], size=[W, H],
     color=[1,1,1], colorSpace='rgb', opacity=1,
+    flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-2.0)
 cubeRU2 = visual.ImageStim(win=win, name='cubeRU2',
     image='cube.png', mask=None,
     ori=0, pos=[0,0], size=[W, H],
     color=[1,1,1], colorSpace='rgb', opacity=1,
+    flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-3.0)
 image_4 = visual.ImageStim(win=win, name='image_4',
     image='fixcross.png', mask=None,
     ori=0, pos=[0, 0], size=[0.1, 0.1],
     color=[1,1,1], colorSpace='rgb', opacity=1,
+    flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-4.0)
 
 
 # Initialize components for Routine "Thanks"
 ThanksClock = core.Clock()
 text_4 = visual.TextStim(win=win, ori=0, name='text_4',
-    text='nonsense',    font='Arial',
+    text='default text',    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
@@ -191,9 +209,13 @@ while continueRoutine:
         key_resp_2.frameNStart = frameN  # exact frame index
         key_resp_2.status = STARTED
         # keyboard checking is just starting
-        event.clearEvents()
+        event.clearEvents(eventType='keyboard')
     if key_resp_2.status == STARTED:
         theseKeys = event.getKeys(keyList=['space'])
+        
+        # check for quit:
+        if "escape" in theseKeys:
+            endExpNow = True
         if len(theseKeys) > 0:  # at least one key was pressed
             # a response ends the routine
             continueRoutine = False
@@ -208,7 +230,6 @@ while continueRoutine:
     
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
-        routineTimer.reset()  # if we abort early the non-slip timer needs reset
         break
     continueRoutine = False  # will revert to True if at least one component still running
     for thisComponent in trialComponents:
@@ -216,20 +237,20 @@ while continueRoutine:
             continueRoutine = True
             break  # at least one component has not yet finished
     
-    # check for quit (the [Esc] key)
-    if event.getKeys(["escape"]):
+    # check for quit (the Esc key)
+    if endExpNow or event.getKeys(keyList=["escape"]):
         core.quit()
     
     # refresh the screen
     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
         win.flip()
-    else:  # this Routine was not non-slip safe so reset non-slip timer
-        routineTimer.reset()
 
 #-------Ending Routine "trial"-------
 for thisComponent in trialComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+# the Routine "trial" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
 trials = data.TrialHandler(nReps=5, method='random', 
@@ -274,7 +295,6 @@ for thisTrial in trials:
         
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
-            routineTimer.reset()  # if we abort early the non-slip timer needs reset
             break
         continueRoutine = False  # will revert to True if at least one component still running
         for thisComponent in resetRoutineComponents:
@@ -282,21 +302,21 @@ for thisTrial in trials:
                 continueRoutine = True
                 break  # at least one component has not yet finished
         
-        # check for quit (the [Esc] key)
-        if event.getKeys(["escape"]):
+        # check for quit (the Esc key)
+        if endExpNow or event.getKeys(keyList=["escape"]):
             core.quit()
         
         # refresh the screen
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
-        else:  # this Routine was not non-slip safe so reset non-slip timer
-            routineTimer.reset()
     
     #-------Ending Routine "resetRoutine"-------
     for thisComponent in resetRoutineComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     
+    # the Routine "resetRoutine" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
     
     # set up handler to look after randomisation of conditions etc
     repetitionsOfDistanceCheck = data.TrialHandler(nReps=40, method='random', 
@@ -366,7 +386,7 @@ for thisTrial in trials:
                 blockLU.tStart = t  # underestimates by a little under one frame
                 blockLU.frameNStart = frameN  # exact frame index
                 blockLU.setAutoDraw(True)
-            elif blockLU.status == STARTED and t >= (0.0 + 0.4):
+            if blockLU.status == STARTED and t >= (0.0 + (0.4-win.monitorFramePeriod*0.75)): #most of one frame period left
                 blockLU.setAutoDraw(False)
             
             # *blockRD* updates
@@ -375,7 +395,7 @@ for thisTrial in trials:
                 blockRD.tStart = t  # underestimates by a little under one frame
                 blockRD.frameNStart = frameN  # exact frame index
                 blockRD.setAutoDraw(True)
-            elif blockRD.status == STARTED and t >= (0.0 + 0.4):
+            if blockRD.status == STARTED and t >= (0.0 + (0.4-win.monitorFramePeriod*0.75)): #most of one frame period left
                 blockRD.setAutoDraw(False)
             
             # *blockLD* updates
@@ -384,7 +404,7 @@ for thisTrial in trials:
                 blockLD.tStart = t  # underestimates by a little under one frame
                 blockLD.frameNStart = frameN  # exact frame index
                 blockLD.setAutoDraw(True)
-            elif blockLD.status == STARTED and t >= (0.4 + 0.4):
+            if blockLD.status == STARTED and t >= (0.4 + (0.4-win.monitorFramePeriod*0.75)): #most of one frame period left
                 blockLD.setAutoDraw(False)
             
             # *cubeRU* updates
@@ -393,7 +413,7 @@ for thisTrial in trials:
                 cubeRU.tStart = t  # underestimates by a little under one frame
                 cubeRU.frameNStart = frameN  # exact frame index
                 cubeRU.setAutoDraw(True)
-            elif cubeRU.status == STARTED and t >= (0.4 + 0.4):
+            if cubeRU.status == STARTED and t >= (0.4 + (0.4-win.monitorFramePeriod*0.75)): #most of one frame period left
                 cubeRU.setAutoDraw(False)
             
             # *fixcross* updates
@@ -402,7 +422,7 @@ for thisTrial in trials:
                 fixcross.tStart = t  # underestimates by a little under one frame
                 fixcross.frameNStart = frameN  # exact frame index
                 fixcross.setAutoDraw(True)
-            elif fixcross.status == STARTED and t >= (0.0 + 0.8):
+            if fixcross.status == STARTED and t >= (0.0 + (0.8-win.monitorFramePeriod*0.75)): #most of one frame period left
                 fixcross.setAutoDraw(False)
             
             # *key_resp_3* updates
@@ -413,11 +433,15 @@ for thisTrial in trials:
                 key_resp_3.status = STARTED
                 # keyboard checking is just starting
                 key_resp_3.clock.reset()  # now t=0
-                event.clearEvents()
-            elif key_resp_3.status == STARTED and t >= (0.0 + 0.8):
+                event.clearEvents(eventType='keyboard')
+            if key_resp_3.status == STARTED and t >= (0.0 + (0.8-win.monitorFramePeriod*0.75)): #most of one frame period left
                 key_resp_3.status = STOPPED
             if key_resp_3.status == STARTED:
                 theseKeys = event.getKeys(keyList=['space'])
+                
+                # check for quit:
+                if "escape" in theseKeys:
+                    endExpNow = True
                 if len(theseKeys) > 0:  # at least one key was pressed
                     key_resp_3.keys = theseKeys[-1]  # just the last key pressed
                     key_resp_3.rt = key_resp_3.clock.getTime()
@@ -426,7 +450,6 @@ for thisTrial in trials:
             
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
-                routineTimer.reset()  # if we abort early the non-slip timer needs reset
                 break
             continueRoutine = False  # will revert to True if at least one component still running
             for thisComponent in DistanceCheckComponents:
@@ -434,8 +457,8 @@ for thisTrial in trials:
                     continueRoutine = True
                     break  # at least one component has not yet finished
             
-            # check for quit (the [Esc] key)
-            if event.getKeys(["escape"]):
+            # check for quit (the Esc key)
+            if endExpNow or event.getKeys(keyList=["escape"]):
                 core.quit()
             
             # refresh the screen
@@ -483,7 +506,6 @@ for thisTrial in trials:
         
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
-            routineTimer.reset()  # if we abort early the non-slip timer needs reset
             break
         continueRoutine = False  # will revert to True if at least one component still running
         for thisComponent in resetRoutine2Components:
@@ -491,21 +513,21 @@ for thisTrial in trials:
                 continueRoutine = True
                 break  # at least one component has not yet finished
         
-        # check for quit (the [Esc] key)
-        if event.getKeys(["escape"]):
+        # check for quit (the Esc key)
+        if endExpNow or event.getKeys(keyList=["escape"]):
             core.quit()
         
         # refresh the screen
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
-        else:  # this Routine was not non-slip safe so reset non-slip timer
-            routineTimer.reset()
     
     #-------Ending Routine "resetRoutine2"-------
     for thisComponent in resetRoutine2Components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     
+    # the Routine "resetRoutine2" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
     
     # set up handler to look after randomisation of conditions etc
     wiederholeBisTot = data.TrialHandler(nReps=40, method='random', 
@@ -565,7 +587,7 @@ for thisTrial in trials:
                 blockLU2.tStart = t  # underestimates by a little under one frame
                 blockLU2.frameNStart = frameN  # exact frame index
                 blockLU2.setAutoDraw(True)
-            elif blockLU2.status == STARTED and t >= (0.0 + 0.4):
+            if blockLU2.status == STARTED and t >= (0.0 + (0.4-win.monitorFramePeriod*0.75)): #most of one frame period left
                 blockLU2.setAutoDraw(False)
             
             # *blockRD2* updates
@@ -574,7 +596,7 @@ for thisTrial in trials:
                 blockRD2.tStart = t  # underestimates by a little under one frame
                 blockRD2.frameNStart = frameN  # exact frame index
                 blockRD2.setAutoDraw(True)
-            elif blockRD2.status == STARTED and t >= (0.0 + 0.4):
+            if blockRD2.status == STARTED and t >= (0.0 + (0.4-win.monitorFramePeriod*0.75)): #most of one frame period left
                 blockRD2.setAutoDraw(False)
             
             # *blockLD2* updates
@@ -583,7 +605,7 @@ for thisTrial in trials:
                 blockLD2.tStart = t  # underestimates by a little under one frame
                 blockLD2.frameNStart = frameN  # exact frame index
                 blockLD2.setAutoDraw(True)
-            elif blockLD2.status == STARTED and t >= (0.4 + 0.4):
+            if blockLD2.status == STARTED and t >= (0.4 + (0.4-win.monitorFramePeriod*0.75)): #most of one frame period left
                 blockLD2.setAutoDraw(False)
             
             # *cubeRU2* updates
@@ -592,7 +614,7 @@ for thisTrial in trials:
                 cubeRU2.tStart = t  # underestimates by a little under one frame
                 cubeRU2.frameNStart = frameN  # exact frame index
                 cubeRU2.setAutoDraw(True)
-            elif cubeRU2.status == STARTED and t >= (0.4 + 0.4):
+            if cubeRU2.status == STARTED and t >= (0.4 + (0.4-win.monitorFramePeriod*0.75)): #most of one frame period left
                 cubeRU2.setAutoDraw(False)
             if cubeRU2.status == STARTED:  # only update if being drawn
                 cubeRU2.setPos([XPOS, YPOS], log=False)
@@ -603,7 +625,7 @@ for thisTrial in trials:
                 image_4.tStart = t  # underestimates by a little under one frame
                 image_4.frameNStart = frameN  # exact frame index
                 image_4.setAutoDraw(True)
-            elif image_4.status == STARTED and t >= (0.0 + 0.8):
+            if image_4.status == STARTED and t >= (0.0 + (0.8-win.monitorFramePeriod*0.75)): #most of one frame period left
                 image_4.setAutoDraw(False)
             if key_resp_5.status == STARTED:
                 theseKeys = event.getKeys(keyList=['space'])
@@ -623,11 +645,15 @@ for thisTrial in trials:
                 key_resp_5.status = STARTED
                 # keyboard checking is just starting
                 key_resp_5.clock.reset()  # now t=0
-                event.clearEvents()
-            elif key_resp_5.status == STARTED and t >= (0.0 + 0.8):
+                event.clearEvents(eventType='keyboard')
+            if key_resp_5.status == STARTED and t >= (0.0 + (0.8-win.monitorFramePeriod*0.75)): #most of one frame period left
                 key_resp_5.status = STOPPED
             if key_resp_5.status == STARTED:
                 theseKeys = event.getKeys(keyList=['space'])
+                
+                # check for quit:
+                if "escape" in theseKeys:
+                    endExpNow = True
                 if len(theseKeys) > 0:  # at least one key was pressed
                     key_resp_5.keys = theseKeys[-1]  # just the last key pressed
                     key_resp_5.rt = key_resp_5.clock.getTime()
@@ -636,7 +662,6 @@ for thisTrial in trials:
             
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
-                routineTimer.reset()  # if we abort early the non-slip timer needs reset
                 break
             continueRoutine = False  # will revert to True if at least one component still running
             for thisComponent in DistCheckV_Components:
@@ -644,8 +669,8 @@ for thisTrial in trials:
                     continueRoutine = True
                     break  # at least one component has not yet finished
             
-            # check for quit (the [Esc] key)
-            if event.getKeys(["escape"]):
+            # check for quit (the Esc key)
+            if endExpNow or event.getKeys(keyList=["escape"]):
                 core.quit()
             
             # refresh the screen
@@ -702,13 +727,12 @@ while continueRoutine and routineTimer.getTime() > 0:
         text_4.tStart = t  # underestimates by a little under one frame
         text_4.frameNStart = frameN  # exact frame index
         text_4.setAutoDraw(True)
-    elif text_4.status == STARTED and t >= (0.0 + 3):
+    if text_4.status == STARTED and t >= (0.0 + (3-win.monitorFramePeriod*0.75)): #most of one frame period left
         text_4.setAutoDraw(False)
     
     
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
-        routineTimer.reset()  # if we abort early the non-slip timer needs reset
         break
     continueRoutine = False  # will revert to True if at least one component still running
     for thisComponent in ThanksComponents:
@@ -716,8 +740,8 @@ while continueRoutine and routineTimer.getTime() > 0:
             continueRoutine = True
             break  # at least one component has not yet finished
     
-    # check for quit (the [Esc] key)
-    if event.getKeys(["escape"]):
+    # check for quit (the Esc key)
+    if endExpNow or event.getKeys(keyList=["escape"]):
         core.quit()
     
     # refresh the screen

@@ -1,23 +1,24 @@
-<PsychoPy2experiment version="1.79.01" encoding="utf-8">
+<PsychoPy2experiment version="1.82.01" encoding="utf-8">
   <Settings>
     <Param name="Show mouse" val="False" valType="bool" updates="None"/>
-    <Param name="Save csv file" val="False" valType="bool" updates="None"/>
+    <Param name="Data filename" val="u'data' + os.sep + '%s_%s' %(expInfo['participant'], expInfo['date'])" valType="code" updates="None"/>
     <Param name="Monitor" val="testMonitor" valType="str" updates="None"/>
     <Param name="Enable Escape" val="True" valType="bool" updates="None"/>
     <Param name="color" val="$[0,0,0]" valType="str" updates="None"/>
     <Param name="Window size (pixels)" val="[1024, 768]" valType="code" updates="None"/>
     <Param name="Full-screen window" val="True" valType="bool" updates="None"/>
     <Param name="colorSpace" val="rgb" valType="str" updates="None"/>
-    <Param name="Save log file" val="True" valType="bool" updates="None"/>
     <Param name="Experiment info" val="{'participant':'', 'session':'001'}" valType="code" updates="None"/>
-    <Param name="Save excel file" val="False" valType="bool" updates="None"/>
+    <Param name="Save csv file" val="False" valType="bool" updates="None"/>
+    <Param name="Show info dlg" val="True" valType="bool" updates="None"/>
     <Param name="Save wide csv file" val="True" valType="bool" updates="None"/>
     <Param name="Save psydat file" val="True" valType="bool" updates="None"/>
     <Param name="expName" val="realExperiment" valType="str" updates="None"/>
     <Param name="logging level" val="exp" valType="code" updates="None"/>
+    <Param name="blendMode" val="avg" valType="str" updates="None"/>
+    <Param name="Save excel file" val="False" valType="bool" updates="None"/>
     <Param name="Units" val="use prefs" valType="str" updates="None"/>
-    <Param name="Show info dlg" val="True" valType="bool" updates="None"/>
-    <Param name="Saved data folder" val="" valType="code" updates="None"/>
+    <Param name="Save log file" val="True" valType="bool" updates="None"/>
     <Param name="Screen" val="1" valType="num" updates="None"/>
   </Settings>
   <Routines>
@@ -45,12 +46,12 @@
     </Routine>
     <Routine name="DistanceCheck">
       <CodeComponent name="codeDistanceCheck">
-        <Param name="Begin Experiment" val="ScreenH = 34.5&#10;ScreenV = 19&#10;DISTANCE = 1.0&#10;&#10;YPOS = DISTANCE&#10;XPOS = (YPOS*ScreenV)/ScreenH&#10;&#10;&#10;W = 0.05&#10;H = 0.075&#10;&#10;my_time = 0&#10;String = []&#10;String.append(expInfo['participant'])&#10;&#10;newString = &quot;./DISTANCES/%s&quot;%expInfo['participant']&#10;with open(newString) as f:&#10;    NR = float(f.readline())&#10;&#10;print DISTANCE,NR,&quot;##############&quot;&#10;YPOS = NR&#10;XPOS = (YPOS*ScreenV)/ScreenH&#10;if YPOS == 1.0:&#10;    print &quot;ERROR!&quot;&#10;    win.close()&#10;    core.quit()&#10;&#10;JustinClock = core.Clock()" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="ScreenH = 34.5&#10;ScreenV = 19&#10;DISTANCE = 1.0&#10;&#10;YPOS = DISTANCE&#10;XPOS = 0.3&#10;&#10;&#10;W = 0.05&#10;H = 0.075&#10;&#10;my_time = 0&#10;String = []&#10;String.append(expInfo['participant'])&#10;&#10;newString = &quot;./DISTANCES/%s&quot;%expInfo['participant']&#10;with open(newString) as f:&#10;    NR = float(f.readline())&#10;&#10;print DISTANCE,NR,&quot;##############&quot;&#10;YPOS = NR&#10;XPOS = (YPOS*ScreenV)/ScreenH&#10;if YPOS == 1.0:&#10;    print &quot;ERROR!&quot;&#10;    win.close()&#10;    core.quit()&#10;&#10;JustinClock = core.Clock()" valType="extendedCode" updates="constant"/>
         <Param name="name" val="codeDistanceCheck" valType="code" updates="None"/>
-        <Param name="Each Frame" val="if key_resp_3.status == STARTED:&#10;    theseKeys = event.getKeys(keyList=['space'])&#10;    if len(theseKeys) &gt; 0:  # at least one key was pressed&#10;        key_resp_3.keys = theseKeys[-1]  # just the last key pressed&#10;        time_tmp = CookieClock.getTime()-CurrentTime&#10;        String.append(str(time_tmp))&#10;&#10;" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="my_time = my_time + 0.8" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if key_resp_3.status == STARTED:&#10;    theseKeys = event.getKeys(keyList=['space'])&#10;    if len(theseKeys) &gt; 0:  # at least one key was pressed&#10;        key_resp_3.keys = theseKeys[-1]  # just the last key pressed&#10;        time_tmp = CookieClock.getTime()-CurrentTime&#10;        String.append(str(time_tmp))&#10;&#10;" valType="extendedCode" updates="constant"/>
       </CodeComponent>
       <ImageComponent name="blockLU">
         <Param name="opacity" val="1" valType="code" updates="constant"/>
@@ -72,7 +73,6 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
       </ImageComponent>
       <ImageComponent name="blockRD">
@@ -95,7 +95,6 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
       </ImageComponent>
       <ImageComponent name="blockLD">
@@ -118,7 +117,6 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.4" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
       </ImageComponent>
       <ImageComponent name="blockRU">
@@ -141,7 +139,6 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.4" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
       </ImageComponent>
       <ImageComponent name="fixcross">
@@ -164,7 +161,6 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="image" val="fixcross.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[0.1, 0.1]" valType="code" updates="constant"/>
       </ImageComponent>
       <KeyboardComponent name="key_resp_3">
@@ -185,13 +181,17 @@
     </Routine>
     <Routine name="HorzVert">
       <RatingScaleComponent name="rating">
+        <Param name="labels" val="" valType="str" updates="constant"/>
         <Param name="pos" val="0, -0.4" valType="str" updates="constant"/>
         <Param name="high" val="1" valType="code" updates="constant"/>
         <Param name="storeRating" val="True" valType="bool" updates="constant"/>
+        <Param name="marker" val="triangle" valType="str" updates="constant"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="markerStart" val="" valType="str" updates="constant"/>
         <Param name="disappear" val="False" valType="bool" updates="constant"/>
         <Param name="size" val="1.0" valType="code" updates="constant"/>
-        <Param name="choiceLabelsAboveLine" val="False" valType="bool" updates="constant"/>
+        <Param name="tickHeight" val="" valType="str" updates="constant"/>
+        <Param name="showAccept" val="True" valType="bool" updates="constant"/>
         <Param name="storeRatingTime" val="True" valType="bool" updates="constant"/>
         <Param name="forceEndRoutine" val="True" valType="bool" updates="constant"/>
         <Param name="low" val="0" valType="code" updates="constant"/>
@@ -199,24 +199,22 @@
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="visualAnalogScale" val="False" valType="bool" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="lowAnchorText" val="" valType="str" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="stopType" val="condition" valType="str" updates="None"/>
         <Param name="scaleDescription" val="" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
+        <Param name="storeHistory" val="False" valType="bool" updates="constant"/>
         <Param name="categoryChoices" val="Horizontal, Vertical" valType="str" updates="constant"/>
         <Param name="customize_everything" val="" valType="str" updates="constant"/>
         <Param name="name" val="rating" valType="code" updates="None"/>
         <Param name="singleClick" val="False" valType="bool" updates="constant"/>
-        <Param name="highAnchorText" val="" valType="str" updates="constant"/>
       </RatingScaleComponent>
       <CodeComponent name="code_3">
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="name" val="code_3" valType="code" updates="None"/>
-        <Param name="Each Frame" val="save = &quot;./TIMES/%s&quot; % expInfo['participant']&#10;if rating.noResponse == False:&#10;    with open(save, &quot;a&quot;) as myfile:&#10;        String.append(rating.getRating())&#10;        String.append(&quot;\n&quot;)&#10;        finalString = ','.join(String)&#10;        myfile.write(finalString)&#10;        String = []&#10;&#10;" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="myTime = 0" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="save = &quot;./TIMES/%s&quot; % expInfo['participant']&#10;if rating.noResponse == False:&#10;    with open(save, &quot;a&quot;) as myfile:&#10;        String.append(rating.getRating())&#10;        String.append(&quot;\n&quot;)&#10;        finalString = ','.join(String)&#10;        myfile.write(finalString)&#10;        String = []&#10;&#10;" valType="extendedCode" updates="constant"/>
       </CodeComponent>
     </Routine>
     <Routine name="testTrial">
@@ -226,7 +224,7 @@
         <Param name="name" val="text_4" valType="code" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
         <Param name="color" val="white" valType="str" updates="constant"/>
-        <Param name="text" val="English:&#10;Welcome to our experiment.&#10;In this experiment you are asked to press the 'Space' button as soon as you detect a switch.&#10;Each trial lasts 1.5 minutes for all in all 6 trials.&#10;The following trial is a Test-Trial where you can get prepared for the experiment. The Test-Trial will be presented for 10 seconds.&#10;The distance in the Test Trial differs from the one calculated before.&#10;Press 'Space' to continue&#10;Deutsch:&#10;Willkommen zu unserem Experiment!&#10;Drücken Sie bitte so schnell wie möglich die 'Leertaste' sobald sie eine Veränderung in der Bewegungsrichtung sehen. &#10;Jeder Test dauert 1.5 Minuten jeweils 6 Mal.&#10;Der folgende Versuch is nur ein Test und dauert 10 Sekunden. Machen Sie sich mit dem Stimuli vertraut. &#10;Die Distanz ist jedoch nicht ihre individuelle sonder willkürlich gewählt. &#10;Viel Spaß!&#10;Drücken Sie die Leertaste um weiterzufahren." valType="str" updates="constant"/>
+        <Param name="text" val="English:&#10;Welcome to our experiment.&#10;In this experiment you are asked to press the 'Space' button as soon as you detect a switch.&#10;Each trial lasts 1.5 minutes for all in all 6 trials.&#10;The following trial is a Test-Trial where you can get prepared for the experiment. The Test-Trial will be presented for 10 seconds.&#10;The distance in the Test Trial differs from the one calculated before.&#10;Press 'Space' to continue&#10;&#10;Deutsch:&#10;Willkommen zu unserem Experiment!&#10;Druecken Sie bitte so schnell wie moeglich die 'Leertaste' sobald sie eine Veraenderung in der Bewegungsrichtung sehen. &#10;Jeder Test dauert 1.5 Minuten jeweils 6 Mal.&#10;Der folgende Versuch ist nur ein Test und dauert 10 Sekunden. Machen Sie sich mit dem Stimuli vertraut. &#10;Die Distanz ist jedoch nicht ihre individuelle sondern willkuerlich gewaehlt. &#10;Viel Spass!&#10;Drücken Sie die Leertaste um weiterzufahren." valType="str" updates="constant"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
@@ -273,7 +271,7 @@
         <Param name="name" val="text" valType="code" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
         <Param name="color" val="white" valType="str" updates="constant"/>
-        <Param name="text" val="Now the real experiment starts.&#10;The changing dots will be presented in 6 trials that each last 1.5 minutes.&#10;After each trial a short break is placed. Feel free to stand up or drink in that time, and as soon as you feel ready Press 'Space' to continue.&#10;Press &quot;Space&quot; to continue" valType="str" updates="constant"/>
+        <Param name="text" val="Now the real experiment starts.&#10;The changing dots will be presented in 6 trials that each last 1.5 minutes.&#10;After each trial a short break is placed. Feel free to stand up or drink in that time, and as soon as you feel ready &#10;Press &quot;Space&quot; to continue" valType="str" updates="constant"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
@@ -305,20 +303,20 @@
       <CodeComponent name="code_4">
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="name" val="code_4" valType="code" updates="None"/>
-        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="JustinClock.reset()" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
       </CodeComponent>
     </Routine>
     <Routine name="resetClock">
       <CodeComponent name="code_5">
         <Param name="Begin Experiment" val="CurrentTime = 0.0&#10;" valType="extendedCode" updates="constant"/>
         <Param name="name" val="code_5" valType="code" updates="None"/>
-        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="CookieClock = core.Clock()&#10;" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
       </CodeComponent>
     </Routine>
     <Routine name="BreakScreen">
@@ -360,10 +358,10 @@
       <CodeComponent name="code">
         <Param name="Begin Experiment" val="ROUND = 1&#10;textPause = &quot;End of Round %s. %s to go! \nTake a break and press 'Space' as soon as you are ready&quot; % (ROUND,6-ROUND)&#10;" valType="extendedCode" updates="constant"/>
         <Param name="name" val="code" valType="code" updates="None"/>
-        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="ROUND = ROUND + 1&#10;textPause = &quot;End of Round %s. %s to go! \nTake a break and press 'Space' as soon as you are ready&quot; % (ROUND,6-ROUND)&#10;&#10;&#10;" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="JustinClock.reset()" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
       </CodeComponent>
     </Routine>
     <Routine name="testTrial_Setup">
@@ -377,7 +375,7 @@
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="mask" val="None" valType="str" updates="constant"/>
-        <Param name="pos" val="[-0.5, 0.5]" valType="code" updates="constant"/>
+        <Param name="pos" val="[-0.3, 0.5]" valType="code" updates="constant"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -387,7 +385,6 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[WW, HH]" valType="code" updates="set every repeat"/>
       </ImageComponent>
       <ImageComponent name="cubeRD">
@@ -400,7 +397,7 @@
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="mask" val="None" valType="str" updates="constant"/>
-        <Param name="pos" val="[0.5,-0.5]" valType="code" updates="constant"/>
+        <Param name="pos" val="[0.3,-0.5]" valType="code" updates="constant"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -410,7 +407,6 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[WW, HH]" valType="code" updates="set every repeat"/>
       </ImageComponent>
       <ImageComponent name="cubeLD">
@@ -423,7 +419,7 @@
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="mask" val="None" valType="str" updates="constant"/>
-        <Param name="pos" val="[-0.5, -0.5]" valType="code" updates="constant"/>
+        <Param name="pos" val="[-0.3, -0.5]" valType="code" updates="constant"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -433,7 +429,6 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.4" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[WW, HH]" valType="code" updates="set every repeat"/>
       </ImageComponent>
       <ImageComponent name="cubeRU">
@@ -446,7 +441,7 @@
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="mask" val="None" valType="str" updates="constant"/>
-        <Param name="pos" val="[0.5, 0.5]" valType="code" updates="constant"/>
+        <Param name="pos" val="[0.3, 0.5]" valType="code" updates="constant"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -456,16 +451,15 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.4" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[WW, HH]" valType="code" updates="set every repeat"/>
       </ImageComponent>
       <CodeComponent name="code_2">
         <Param name="Begin Experiment" val="WW = 0.05&#10;HH = 0.075&#10;" valType="extendedCode" updates="constant"/>
         <Param name="name" val="code_2" valType="code" updates="None"/>
-        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="WW = 0.05&#10;HH = 0.075&#10;" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
       </CodeComponent>
       <ImageComponent name="image">
         <Param name="opacity" val="1" valType="code" updates="constant"/>
@@ -487,7 +481,6 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="image" val="fixcross.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[0.1, 0.1]" valType="code" updates="constant"/>
       </ImageComponent>
     </Routine>
@@ -497,11 +490,13 @@
     <LoopInitiator loopType="TrialHandler" name="trials">
       <Param name="conditionsFile" val="" valType="str" updates="None"/>
       <Param name="name" val="trials" valType="code" updates="None"/>
+      <Param name="isTrials" val="True" valType="bool" updates="None"/>
       <Param name="random seed" val="" valType="code" updates="None"/>
       <Param name="loopType" val="random" valType="str" updates="None"/>
       <Param name="nReps" val="12" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="code" updates="None"/>
     </LoopInitiator>
     <Routine name="testTrial_Setup"/>
     <LoopTerminator name="trials"/>
@@ -509,34 +504,39 @@
     <LoopInitiator loopType="TrialHandler" name="trialsReal">
       <Param name="conditionsFile" val="" valType="str" updates="None"/>
       <Param name="name" val="trialsReal" valType="code" updates="None"/>
+      <Param name="isTrials" val="True" valType="bool" updates="None"/>
       <Param name="random seed" val="" valType="code" updates="None"/>
       <Param name="loopType" val="random" valType="str" updates="None"/>
       <Param name="nReps" val="6" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="code" updates="None"/>
     </LoopInitiator>
     <LoopInitiator loopType="TrialHandler" name="timeGetterTrial">
       <Param name="conditionsFile" val="" valType="str" updates="None"/>
       <Param name="name" val="timeGetterTrial" valType="code" updates="None"/>
+      <Param name="isTrials" val="True" valType="bool" updates="None"/>
       <Param name="random seed" val="" valType="code" updates="None"/>
       <Param name="loopType" val="random" valType="str" updates="None"/>
       <Param name="nReps" val="1" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="code" updates="None"/>
     </LoopInitiator>
     <Routine name="resetClock"/>
     <LoopInitiator loopType="TrialHandler" name="repetitionsOfDistanceCheck">
       <Param name="conditionsFile" val="" valType="str" updates="None"/>
       <Param name="name" val="repetitionsOfDistanceCheck" valType="code" updates="None"/>
+      <Param name="isTrials" val="True" valType="bool" updates="None"/>
       <Param name="random seed" val="" valType="code" updates="None"/>
       <Param name="loopType" val="random" valType="str" updates="None"/>
       <Param name="nReps" val="113" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="code" updates="None"/>
     </LoopInitiator>
     <Routine name="DistanceCheck"/>
     <LoopTerminator name="repetitionsOfDistanceCheck"/>
-    <Routine name="HorzVert"/>
     <Routine name="BreakScreen"/>
     <LoopTerminator name="timeGetterTrial"/>
     <LoopTerminator name="trialsReal"/>
