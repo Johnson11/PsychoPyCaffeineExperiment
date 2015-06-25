@@ -439,7 +439,7 @@
         <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
       </TextComponent>
       <CodeComponent name="code_4">
-        <Param name="Begin Experiment" val="finalText = &quot;Thanks %s! \n Now we are set for the real experiment!&quot;% expInfo['participant']" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="finalText = &quot;Thank You! \n Now we are set for the real experiment! \n Danke, jetzt koennen wir zum echten Experiment ueber gehen.&quot;" valType="extendedCode" updates="constant"/>
         <Param name="name" val="code_4" valType="code" updates="None"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
@@ -504,7 +504,7 @@
       <Param name="nReps" val="5" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
-      <Param name="Selected rows" val="" valType="code" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
     </LoopInitiator>
     <Routine name="resetRoutine"/>
     <LoopInitiator loopType="TrialHandler" name="repetitionsOfDistanceCheck">
@@ -516,7 +516,7 @@
       <Param name="nReps" val="40" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
-      <Param name="Selected rows" val="" valType="code" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
     </LoopInitiator>
     <Routine name="DistanceCheck"/>
     <LoopTerminator name="repetitionsOfDistanceCheck"/>
@@ -530,7 +530,7 @@
       <Param name="nReps" val="40" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
-      <Param name="Selected rows" val="" valType="code" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
     </LoopInitiator>
     <Routine name="DistCheckV_"/>
     <LoopTerminator name="wiederholeBisTot"/>
