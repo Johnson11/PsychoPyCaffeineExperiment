@@ -1,23 +1,24 @@
-<PsychoPy2experiment version="1.79.01" encoding="utf-8">
+<PsychoPy2experiment version="1.82.01" encoding="utf-8">
   <Settings>
     <Param name="Show mouse" val="False" valType="bool" updates="None"/>
-    <Param name="Save csv file" val="False" valType="bool" updates="None"/>
+    <Param name="Data filename" val="u'data' + os.sep + '%s_%s' %(expInfo['participant'], expInfo['date'])" valType="code" updates="None"/>
     <Param name="Monitor" val="testMonitor" valType="str" updates="None"/>
     <Param name="Enable Escape" val="True" valType="bool" updates="None"/>
     <Param name="color" val="$[0,0,0]" valType="str" updates="None"/>
     <Param name="Window size (pixels)" val="[1024, 768]" valType="code" updates="None"/>
     <Param name="Full-screen window" val="True" valType="bool" updates="None"/>
     <Param name="colorSpace" val="rgb" valType="str" updates="None"/>
-    <Param name="Save log file" val="True" valType="bool" updates="None"/>
     <Param name="Experiment info" val="{'participant':'', 'session':'001'}" valType="code" updates="None"/>
-    <Param name="Save excel file" val="False" valType="bool" updates="None"/>
+    <Param name="Save csv file" val="False" valType="bool" updates="None"/>
+    <Param name="Show info dlg" val="True" valType="bool" updates="None"/>
     <Param name="Save wide csv file" val="True" valType="bool" updates="None"/>
     <Param name="Save psydat file" val="True" valType="bool" updates="None"/>
     <Param name="expName" val="coffee_distCheck" valType="str" updates="None"/>
     <Param name="logging level" val="exp" valType="code" updates="None"/>
+    <Param name="blendMode" val="avg" valType="str" updates="None"/>
+    <Param name="Save excel file" val="False" valType="bool" updates="None"/>
     <Param name="Units" val="use prefs" valType="str" updates="None"/>
-    <Param name="Show info dlg" val="True" valType="bool" updates="None"/>
-    <Param name="Saved data folder" val="" valType="code" updates="None"/>
+    <Param name="Save log file" val="True" valType="bool" updates="None"/>
     <Param name="Screen" val="1" valType="num" updates="None"/>
   </Settings>
   <Routines>
@@ -26,15 +27,15 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
         <Param name="name" val="text_2" valType="code" updates="None"/>
-        <Param name="color" val="white" valType="str" updates="constant"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="Which direction of the cubes moving did you see first?" valType="str" updates="constant"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="text" val="Which direction of the cubes moving did you see first?" valType="str" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
@@ -43,13 +44,17 @@
         <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
       </TextComponent>
       <RatingScaleComponent name="rating">
+        <Param name="labels" val="" valType="str" updates="constant"/>
         <Param name="pos" val="0, -0.4" valType="str" updates="constant"/>
         <Param name="high" val="2" valType="code" updates="constant"/>
         <Param name="storeRating" val="True" valType="bool" updates="constant"/>
+        <Param name="marker" val="triangle" valType="str" updates="constant"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="markerStart" val="" valType="str" updates="constant"/>
         <Param name="disappear" val="False" valType="bool" updates="constant"/>
         <Param name="size" val="1.0" valType="code" updates="constant"/>
-        <Param name="choiceLabelsAboveLine" val="False" valType="bool" updates="constant"/>
+        <Param name="tickHeight" val="" valType="str" updates="constant"/>
+        <Param name="showAccept" val="True" valType="bool" updates="constant"/>
         <Param name="storeRatingTime" val="False" valType="bool" updates="constant"/>
         <Param name="forceEndRoutine" val="True" valType="bool" updates="constant"/>
         <Param name="low" val="1" valType="code" updates="constant"/>
@@ -57,39 +62,38 @@
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="visualAnalogScale" val="False" valType="bool" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="lowAnchorText" val="" valType="str" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="stopType" val="condition" valType="str" updates="None"/>
         <Param name="scaleDescription" val="" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
+        <Param name="storeHistory" val="False" valType="bool" updates="constant"/>
         <Param name="categoryChoices" val="Horizontal, Vertical" valType="str" updates="constant"/>
         <Param name="customize_everything" val="" valType="str" updates="constant"/>
         <Param name="name" val="rating" valType="code" updates="None"/>
         <Param name="singleClick" val="False" valType="bool" updates="constant"/>
-        <Param name="highAnchorText" val="" valType="str" updates="constant"/>
       </RatingScaleComponent>
       <CodeComponent name="code_2">
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="name" val="code_2" valType="code" updates="None"/>
-        <Param name="Each Frame" val="if t &gt; 0.0:&#10;        rating.draw()&#10;        continueRoutine = rating.noResponse&#10;        if rating.noResponse == False:&#10;            name = &quot;./DISTANCES/%s&quot;%(expInfo['participant'])&#10;            with open(name, &quot;a&quot;) as myfile:&#10;                myfile.write(&quot;\n&quot;)&#10;                myfile.write(rating.getRating())&#10;&#10;" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if t &gt; 0.0:&#10;        rating.draw()&#10;        continueRoutine = rating.noResponse&#10;        if rating.noResponse == False:&#10;            name = &quot;./DISTANCES/%s&quot;%(expInfo['participant'])&#10;            with open(name, &quot;a&quot;) as myfile:&#10;                myfile.write(&quot;\n&quot;)&#10;                myfile.write(rating.getRating())&#10;&#10;" valType="extendedCode" updates="constant"/>
       </CodeComponent>
     </Routine>
     <Routine name="DistanceCheck">
       <CodeComponent name="codeDistanceCheckUP">
-        <Param name="Begin Experiment" val="ScreenH = 34.5&#10;ScreenV = 19&#10;&#10;&#10;YPOS = 0.1&#10;XPOS = 0.5&#10;&#10;demValues = []&#10;&#10;&#10;W = 0.05&#10;H = 0.075&#10;&#10;changeRate=0.025&#10;&#10;&#10;" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="ScreenH = 34.5&#10;ScreenV = 19&#10;&#10;&#10;YPOS = 0.1&#10;XPOS = 0.3&#10;&#10;&#10;demValues = []&#10;&#10;&#10;W = 0.05&#10;H = 0.075&#10;&#10;changeRate=0.025&#10;&#10;&#10;" valType="extendedCode" updates="constant"/>
         <Param name="name" val="codeDistanceCheckUP" valType="code" updates="None"/>
-        <Param name="Each Frame" val="&#10;if key_resp_3.status == STARTED:&#10;    theseKeys = event.getKeys(keyList=['space'])&#10;    if len(theseKeys) &gt; 0:  # at least one key was pressed&#10;        key_resp_3.keys = theseKeys[-1]  # just the last key pressed&#10;        print YPOS&#10;        name = &quot;./DISTANCES/%s&quot;%(expInfo['participant'])&#10;        demValues.append(YPOS)&#10;        repetitionsOfDistanceCheck.finished=True&#10;       " valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="YPOS= YPOS + changeRate" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="&#10;if key_resp_3.status == STARTED:&#10;    theseKeys = event.getKeys(keyList=['space'])&#10;    if len(theseKeys) &gt; 0:  # at least one key was pressed&#10;        key_resp_3.keys = theseKeys[-1]  # just the last key pressed&#10;        print YPOS&#10;        name = &quot;./DISTANCES/%s&quot;%(expInfo['participant'])&#10;        demValues.append(YPOS)&#10;        repetitionsOfDistanceCheck.finished=True&#10;       " valType="extendedCode" updates="constant"/>
       </CodeComponent>
       <ImageComponent name="blockLU">
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="blockLU" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -98,21 +102,20 @@
         <Param name="pos" val="[-XPOS, YPOS]" valType="code" updates="set every repeat"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
       </ImageComponent>
       <ImageComponent name="blockRD">
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="blockRD" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -121,21 +124,20 @@
         <Param name="pos" val="[XPOS, -YPOS]" valType="code" updates="set every repeat"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
       </ImageComponent>
       <ImageComponent name="blockLD">
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="blockLD" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -144,21 +146,20 @@
         <Param name="pos" val="[-XPOS, -YPOS]" valType="code" updates="set every repeat"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="startVal" val="0.4" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.4" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
       </ImageComponent>
       <ImageComponent name="cubeRU">
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="cubeRU" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -167,21 +168,20 @@
         <Param name="pos" val="[XPOS, YPOS]" valType="code" updates="set every repeat"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="startVal" val="0.4" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.4" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
       </ImageComponent>
       <ImageComponent name="fixcross">
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="fixcross" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.8" valType="code" updates="constant"/>
@@ -190,15 +190,13 @@
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="image" val="fixcross.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[0.1, 0.1]" valType="code" updates="constant"/>
       </ImageComponent>
       <KeyboardComponent name="key_resp_3">
@@ -221,10 +219,10 @@
       <CodeComponent name="code_5">
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="name" val="code_5" valType="code" updates="None"/>
-        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="YPOS = 0.1&#10;" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
       </CodeComponent>
     </Routine>
     <Routine name="DistCheckV_">
@@ -232,6 +230,7 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="blockLU2" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -240,21 +239,20 @@
         <Param name="pos" val="[-XPOS, YPOS]" valType="code" updates="set every repeat"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
       </ImageComponent>
       <ImageComponent name="blockRD2">
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="blockRD2" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -263,21 +261,20 @@
         <Param name="pos" val="[XPOS, -YPOS]" valType="code" updates="set every repeat"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
       </ImageComponent>
       <ImageComponent name="blockLD2">
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="blockLD2" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -286,21 +283,20 @@
         <Param name="pos" val="[-XPOS, -YPOS]" valType="code" updates="set every repeat"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="startVal" val="0.4" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.4" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
       </ImageComponent>
       <ImageComponent name="cubeRU2">
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="cubeRU2" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.4" valType="code" updates="constant"/>
@@ -309,21 +305,20 @@
         <Param name="pos" val="[XPOS, YPOS]" valType="code" updates="set every frame"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="startVal" val="0.4" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.4" valType="code" updates="None"/>
         <Param name="image" val="cube.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[W, H]" valType="code" updates="constant"/>
       </ImageComponent>
       <ImageComponent name="image_4">
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="flipVert" val="False" valType="bool" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
         <Param name="name" val="image_4" valType="code" updates="constant"/>
         <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
         <Param name="stopVal" val="0.8" valType="code" updates="constant"/>
@@ -332,24 +327,22 @@
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
         <Param name="interpolate" val="linear" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="image" val="fixcross.png" valType="str" updates="constant"/>
-        <Param name="advancedParams"/>
         <Param name="size" val="[0.1, 0.1]" valType="code" updates="constant"/>
       </ImageComponent>
       <CodeComponent name="code_3">
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="name" val="code_3" valType="code" updates="None"/>
-        <Param name="Each Frame" val="if key_resp_5.status == STARTED:&#10;    theseKeys = event.getKeys(keyList=['space'])&#10;    if len(theseKeys) &gt; 0:  # at least one key was pressed&#10;        key_resp_5.keys = theseKeys[-1]  # just the last key pressed&#10;        print YPOS&#10;        demValues.append(YPOS)&#10;        wiederholeBisTot.finished=True&#10;      &#10;" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="&#10;YPOS= YPOS - changeRate" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if key_resp_5.status == STARTED:&#10;    theseKeys = event.getKeys(keyList=['space'])&#10;    if len(theseKeys) &gt; 0:  # at least one key was pressed&#10;        key_resp_5.keys = theseKeys[-1]  # just the last key pressed&#10;        print YPOS&#10;        demValues.append(YPOS)&#10;        wiederholeBisTot.finished=True&#10;      &#10;" valType="extendedCode" updates="constant"/>
       </CodeComponent>
       <KeyboardComponent name="key_resp_5">
         <Param name="correctAns" val="" valType="str" updates="constant"/>
@@ -382,15 +375,15 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
         <Param name="name" val="text" valType="code" updates="None"/>
-        <Param name="color" val="white" valType="str" updates="constant"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="Englisch:&#10;First of all we will define your optimal distance.&#10;Therefore you are asked to fixate the cross in the middle of the screen and report to press 'Space' as soon as you see a switch.&#10;The squares are first diverging in the vertical direction, so as soon you see horizontal movement press 'Space'.&#10;They are directly moving together, and again as soon you see a switch, so a movement into vertical direction, press 'Space'.&#10;Do not press 'Space' after that but wait instead for the end of the routine.&#10;Press &quot;Space&quot; to continue&#10;&#10;Deutsch: &#10;Zu aller erst werden wir Ihre optimale Distanz der Quadrate bestimmen.&#10;Dazu fixieren Sie bitte den Fixpunkt in der Mitte aber achten Sie trotzdem auf die vier Quadrate.&#10;Sie werden beim ersten Blick eine bestimmte Bewegungsrichtung wahrnehmen, entweder horizontal oder vertikal.&#10;Die Quadrate werden in der vertikalen Richtung auseinandergehen und sobald Sie einen Wechsel in ihrer wahrgenommenen Bewegung wahrnehmen, drücken sie schnellstmöglich die 'Leertaste'. &#10;Das Ganze wird dann ebenfalls für das Zusammenlaufen der Quarate in der vertikalen Richtung gemacht.&#10;" valType="str" updates="constant"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="text" val="Englisch:&#10;First of all we will define your optimal distance.&#10;Therefore you are asked to fixate the cross in the middle of the screen and report to press 'Space' as soon as you see a switch.&#10;The squares are first diverging in the vertical direction, so as soon you see horizontal movement press 'Space'.&#10;They are directly moving together, and again as soon you see a switch, so a movement into vertical direction, press 'Space'.&#10;Do not press 'Space' after that but wait instead for the end of the routine.&#10;Press &quot;Space&quot; to continue&#10;Deutsch: &#10;Zu aller erst werden wir Ihre optimale Distanz der Quadrate bestimmen.&#10;Dazu fixieren Sie bitte den Fixpunkt in der Mitte aber achten Sie trotzdem auf die vier Quadrate.&#10;Sie werden beim ersten Blick eine bestimmte Bewegungsrichtung wahrnehmen, entweder horizontal oder vertikal.&#10;Die Quadrate werden in der vertikalen Richtung auseinandergehen und sobald Sie einen Wechsel in ihrer wahrgenommenen Bewegung wahrnehmen, drücken sie schnellstmöglich die 'Leertaste'. &#10;Das Ganze wird dann ebenfalls für das Zusammenlaufen der Quarate in der vertikalen Richtung gemacht.&#10;" valType="str" updates="constant"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
@@ -418,10 +411,10 @@
       <CodeComponent name="code_6">
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="name" val="code_6" valType="code" updates="None"/>
-        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="YPOS = 0.95&#10;" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
       </CodeComponent>
     </Routine>
     <Routine name="Thanks">
@@ -429,15 +422,15 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
         <Param name="name" val="text_4" valType="code" updates="None"/>
-        <Param name="color" val="white" valType="str" updates="constant"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="$finalText" valType="str" updates="set every repeat"/>
         <Param name="stopVal" val="3" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="text" val="$finalText" valType="str" updates="set every repeat"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
@@ -448,10 +441,10 @@
       <CodeComponent name="code_4">
         <Param name="Begin Experiment" val="finalText = &quot;Thanks %s! \n Now we are set for the real experiment!&quot;% expInfo['participant']" valType="extendedCode" updates="constant"/>
         <Param name="name" val="code_4" valType="code" updates="None"/>
-        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="import numpy as np&#10;means = np.mean(demValues)&#10;print means&#10;save = &quot;./DISTANCES/%s&quot; % expInfo['participant']&#10;with open(save, &quot;w&quot;) as myfile:&#10;    myfile.write(str(means))" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
       </CodeComponent>
     </Routine>
     <Routine name="BreakScreen">
@@ -459,15 +452,15 @@
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
         <Param name="name" val="text_3" valType="code" updates="None"/>
-        <Param name="color" val="white" valType="str" updates="constant"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="$textPause&#10;&#10;" valType="str" updates="set every repeat"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="text" val="$textPause&#10;&#10;" valType="str" updates="set every repeat"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
@@ -493,10 +486,10 @@
       <CodeComponent name="code">
         <Param name="Begin Experiment" val="ROUND = 1&#10;textPause = &quot;End of Round %s. %s to go! \nTake a break and press 'Space' as soon as you are ready&quot; % (ROUND,6-ROUND)&#10;" valType="extendedCode" updates="constant"/>
         <Param name="name" val="code" valType="code" updates="None"/>
-        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="ROUND = ROUND + 1&#10;textPause = &quot;End of Round %s. %s to go! \nTake a break and press 'Space' as soon as you are ready&quot; % (ROUND,6-ROUND)&#10;&#10;&#10;" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
       </CodeComponent>
     </Routine>
   </Routines>
@@ -505,21 +498,25 @@
     <LoopInitiator loopType="TrialHandler" name="trials">
       <Param name="conditionsFile" val="" valType="str" updates="None"/>
       <Param name="name" val="trials" valType="code" updates="None"/>
+      <Param name="isTrials" val="True" valType="bool" updates="None"/>
       <Param name="random seed" val="" valType="code" updates="None"/>
       <Param name="loopType" val="random" valType="str" updates="None"/>
       <Param name="nReps" val="5" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="code" updates="None"/>
     </LoopInitiator>
     <Routine name="resetRoutine"/>
     <LoopInitiator loopType="TrialHandler" name="repetitionsOfDistanceCheck">
       <Param name="conditionsFile" val="" valType="str" updates="None"/>
       <Param name="name" val="repetitionsOfDistanceCheck" valType="code" updates="None"/>
+      <Param name="isTrials" val="True" valType="bool" updates="None"/>
       <Param name="random seed" val="" valType="code" updates="None"/>
       <Param name="loopType" val="random" valType="str" updates="None"/>
       <Param name="nReps" val="40" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="code" updates="None"/>
     </LoopInitiator>
     <Routine name="DistanceCheck"/>
     <LoopTerminator name="repetitionsOfDistanceCheck"/>
@@ -527,11 +524,13 @@
     <LoopInitiator loopType="TrialHandler" name="wiederholeBisTot">
       <Param name="conditionsFile" val="" valType="str" updates="None"/>
       <Param name="name" val="wiederholeBisTot" valType="code" updates="None"/>
+      <Param name="isTrials" val="True" valType="bool" updates="None"/>
       <Param name="random seed" val="" valType="code" updates="None"/>
       <Param name="loopType" val="random" valType="str" updates="None"/>
       <Param name="nReps" val="40" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="code" updates="None"/>
     </LoopInitiator>
     <Routine name="DistCheckV_"/>
     <LoopTerminator name="wiederholeBisTot"/>
