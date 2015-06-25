@@ -46,7 +46,7 @@
     </Routine>
     <Routine name="DistanceCheck">
       <CodeComponent name="codeDistanceCheck">
-        <Param name="Begin Experiment" val="ScreenH = 34.5&#10;ScreenV = 19&#10;DISTANCE = 1.0&#10;&#10;YPOS = DISTANCE&#10;XPOS = 0.3&#10;&#10;&#10;W = 0.05&#10;H = 0.075&#10;&#10;my_time = 0&#10;String = []&#10;String.append(expInfo['participant'])&#10;&#10;newString = &quot;./DISTANCES/%s&quot;%expInfo['participant']&#10;with open(newString) as f:&#10;    NR = float(f.readline())&#10;&#10;print DISTANCE,NR,&quot;##############&quot;&#10;YPOS = NR&#10;XPOS = (YPOS*ScreenV)/ScreenH&#10;if YPOS == 1.0:&#10;    print &quot;ERROR!&quot;&#10;    win.close()&#10;    core.quit()&#10;&#10;JustinClock = core.Clock()" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="with open(&quot;./ScreenRatio&quot;) as f:&#10;    content = f.readlines()&#10;&#10;ScreenH = float(content[0])&#10;ScreenV = float(content[1])&#10;&#10;&#10;DISTANCE = 1.0&#10;&#10;YPOS = DISTANCE&#10;XPOS = 5/(ScreenH/2)&#10;&#10;&#10;W = 0.05&#10;H = 0.075&#10;&#10;my_time = 0&#10;String = []&#10;String.append(expInfo['participant'])&#10;&#10;newString = &quot;./DISTANCES/%s&quot;%expInfo['participant']&#10;with open(newString) as f:&#10;    NR = float(f.readline())&#10;&#10;print DISTANCE,NR,&quot;##############&quot;&#10;YPOS = NR&#10;XPOS = (YPOS*ScreenV)/ScreenH&#10;if YPOS == 1.0:&#10;    print &quot;ERROR!&quot;&#10;    win.close()&#10;    core.quit()&#10;&#10;JustinClock = core.Clock()" valType="extendedCode" updates="constant"/>
         <Param name="name" val="codeDistanceCheck" valType="code" updates="None"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="my_time = my_time + 0.8" valType="extendedCode" updates="constant"/>
@@ -496,7 +496,7 @@
       <Param name="nReps" val="12" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
-      <Param name="Selected rows" val="" valType="code" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
     </LoopInitiator>
     <Routine name="testTrial_Setup"/>
     <LoopTerminator name="trials"/>
@@ -510,7 +510,7 @@
       <Param name="nReps" val="6" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
-      <Param name="Selected rows" val="" valType="code" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
     </LoopInitiator>
     <LoopInitiator loopType="TrialHandler" name="timeGetterTrial">
       <Param name="conditionsFile" val="" valType="str" updates="None"/>
@@ -521,7 +521,7 @@
       <Param name="nReps" val="1" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
-      <Param name="Selected rows" val="" valType="code" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
     </LoopInitiator>
     <Routine name="resetClock"/>
     <LoopInitiator loopType="TrialHandler" name="repetitionsOfDistanceCheck">
@@ -533,7 +533,7 @@
       <Param name="nReps" val="113" valType="code" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
-      <Param name="Selected rows" val="" valType="code" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
     </LoopInitiator>
     <Routine name="DistanceCheck"/>
     <LoopTerminator name="repetitionsOfDistanceCheck"/>

@@ -82,7 +82,7 @@
     </Routine>
     <Routine name="DistanceCheck">
       <CodeComponent name="codeDistanceCheckUP">
-        <Param name="Begin Experiment" val="ScreenH = 34.5&#10;ScreenV = 19&#10;&#10;&#10;YPOS = 0.1&#10;XPOS = 0.3&#10;&#10;&#10;demValues = []&#10;&#10;&#10;W = 0.05&#10;H = 0.075&#10;&#10;changeRate=0.025&#10;&#10;&#10;" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="with open(&quot;./ScreenRatio&quot;) as f:&#10;    content = f.readlines()&#10;&#10;ScreenH = float(content[0])&#10;ScreenV = float(content[1])&#10;&#10;YPOS = 0.1&#10;XPOS = 5/(ScreenH/2)&#10;&#10;&#10;demValues = []&#10;&#10;&#10;W = 0.05&#10;H = 0.075&#10;&#10;changeRate=0.025&#10;&#10;&#10;" valType="extendedCode" updates="constant"/>
         <Param name="name" val="codeDistanceCheckUP" valType="code" updates="None"/>
         <Param name="Begin Routine" val="YPOS= YPOS + changeRate" valType="extendedCode" updates="constant"/>
         <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>

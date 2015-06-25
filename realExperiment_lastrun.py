@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy2 Experiment Builder (v1.79.01), Thu 25 Jun 2015 02:15:45 PM CEST
+This experiment was created using PsychoPy2 Experiment Builder (v1.82.01), Thu 25 Jun 2015 02:54:36 PM CEST
 If you publish work using this script please cite the relevant PsychoPy publications
   Peirce, JW (2007) PsychoPy - Psychophysics software in Python. Journal of Neuroscience Methods, 162(1-2), 8-13.
   Peirce, JW (2009) Generating stimuli for neuroscience using PsychoPy. Frontiers in Neuroinformatics, 2:10. doi: 10.3389/neuro.11.010.2008
@@ -59,33 +59,33 @@ else:
 # Initialize components for Routine "testTrial"
 testTrialClock = core.Clock()
 text_4 = visual.TextStim(win=win, ori=0, name='text_4',
-    text=u"English:\nWelcome to our experiment.\nIn this experiment you are asked to press the 'Space' button as soon as you detect a switch.\nEach trial lasts 1.5 minutes for all in all 6 trials.\nThe following trial is a Test-Trial where you can get prepared for the experiment. The Test-Trial will be presented for 10 seconds.\nThe distance in the Test Trial differs from the one calculated before.\nPress 'Space' to continue\n\nDeutsch:\nWillkommen zu unserem Experiment!\nDruecken Sie bitte so schnell wie moeglich die 'Leertaste' sobald sie eine Veraenderung in der Bewegungsrichtung sehen. \nJeder Test dauert 1.5 Minuten jeweils 6 Mal.\nDer folgende Versuch ist nur ein Test und dauert 10 Sekunden. Machen Sie sich mit dem Stimuli vertraut. \nDie Distanz ist jedoch nicht ihre individuelle sondern willkuerlich gewaehlt. \nViel Spass!\nDr\xfccken Sie die Leertaste um weiterzufahren.",    font=u'Arial',
+    text=u"English:\nWelcome to our experiment.\nIn this experiment you are asked to press the 'Space' button as soon as you detect a switch.\nEach trial lasts 1.5 minutes for all in all 6 trials.\nThe following trial is a Test-Trial where you can get prepared for the experiment. The Test-Trial will be presented for 10 seconds.\nThe distance in the Test Trial differs from the one calculated before.\nPress 'Space' to continue\n\nDeutsch:\nWillkommen zu unserem Experiment!\nDruecken Sie bitte so schnell wie moeglich die 'Leertaste' sobald sie eine Veraenderung in der Bewegungsrichtung sehen. \nJeder Test dauert 1.5 Minuten jeweils 6 Mal.\nDer folgende Versuch ist nur ein Test und dauert 10 Sekunden. Machen Sie sich mit dem Stimuli vertraut. \nDie Distanz ist jedoch nicht ihre individuelle sondern willkuerlich gewaehlt. \nViel Spass!\nDr\xfccken Sie die Leertaste um weiterzufahren.",    font='Arial',
     pos=[0, 0], height=0.05, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "testTrial_Setup"
 testTrial_SetupClock = core.Clock()
 cubeLU = visual.ImageStim(win=win, name='cubeLU',
-    image=u'cube.png', mask=None,
+    image='cube.png', mask=None,
     ori=0, pos=[-0.3, 0.5], size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=0.0)
 cubeRD = visual.ImageStim(win=win, name='cubeRD',
-    image=u'cube.png', mask=None,
+    image='cube.png', mask=None,
     ori=0, pos=[0.3,-0.5], size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-1.0)
 cubeLD = visual.ImageStim(win=win, name='cubeLD',
-    image=u'cube.png', mask=None,
+    image='cube.png', mask=None,
     ori=0, pos=[-0.3, -0.5], size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-2.0)
 cubeRU = visual.ImageStim(win=win, name='cubeRU',
-    image=u'cube.png', mask=None,
+    image='cube.png', mask=None,
     ori=0, pos=[0.3, 0.5], size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
@@ -104,9 +104,9 @@ image = visual.ImageStim(win=win, name='image',
 trialClock = core.Clock()
 ISI = core.StaticPeriod(win=win, screenHz=expInfo['frameRate'], name='ISI')
 text = visual.TextStim(win=win, ori=0, name='text',
-    text=u'Now the real experiment starts.\nThe changing dots will be presented in 6 trials that each last 1.5 minutes.\nAfter each trial a short break is placed. Feel free to stand up or drink in that time, and as soon as you feel ready \nPress "Space" to continue',    font=u'Arial',
+    text='Now the real experiment starts.\nThe changing dots will be presented in 6 trials that each last 1.5 minutes.\nAfter each trial a short break is placed. Feel free to stand up or drink in that time, and as soon as you feel ready \nPress "Space" to continue',    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0)
 
 
@@ -117,12 +117,17 @@ CurrentTime = 0.0
 
 # Initialize components for Routine "DistanceCheck"
 DistanceCheckClock = core.Clock()
-ScreenH = 34.5
-ScreenV = 19
+with open("./ScreenRatio") as f:
+    content = f.readlines()
+
+ScreenH = float(content[0])
+ScreenV = float(content[1])
+
+
 DISTANCE = 1.0
 
 YPOS = DISTANCE
-XPOS = 0.3
+XPOS = 5/(ScreenH/2)
 
 
 W = 0.05

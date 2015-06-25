@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy2 Experiment Builder (v1.79.01), Thu 25 Jun 2015 01:55:24 PM CEST
+This experiment was created using PsychoPy2 Experiment Builder (v1.82.01), Thu 25 Jun 2015 02:52:35 PM CEST
 If you publish work using this script please cite the relevant PsychoPy publications
   Peirce, JW (2007) PsychoPy - Psychophysics software in Python. Journal of Neuroscience Methods, 162(1-2), 8-13.
   Peirce, JW (2009) Generating stimuli for neuroscience using PsychoPy. Frontiers in Neuroinformatics, 2:10. doi: 10.3389/neuro.11.010.2008
@@ -60,7 +60,7 @@ else:
 trialClock = core.Clock()
 ISI = core.StaticPeriod(win=win, screenHz=expInfo['frameRate'], name='ISI')
 text = visual.TextStim(win=win, ori=0, name='text',
-    text=u'Englisch:\nFirst of all we will define your optimal distance.\nTherefore you are asked to fixate the cross in the middle of the screen and report to press \'Space\' as soon as you see a switch.\nThe squares are first diverging in the vertical direction, so as soon you see horizontal movement press \'Space\'.\nThey are directly moving together, and again as soon you see a switch, so a movement into vertical direction, press \'Space\'.\nDo not press \'Space\' after that but wait instead for the end of the routine.\nPress "Space" to continue\nDeutsch: \nZu aller erst werden wir Ihre optimale Distanz der Quadrate bestimmen.\nDazu fixieren Sie bitte den Fixpunkt in der Mitte aber achten Sie trotzdem auf die vier Quadrate.\nSie werden beim ersten Blick eine bestimmte Bewegungsrichtung wahrnehmen, entweder horizontal oder vertikal.\nDie Quadrate werden in der vertikalen Richtung auseinandergehen und sobald Sie einen Wechsel in ihrer wahrgenommenen Bewegung wahrnehmen, dr\xfccken sie schnellstm\xf6glich die \'Leertaste\'. \nDas Ganze wird dann ebenfalls f\xfcr das Zusammenlaufen der Quarate in der vertikalen Richtung gemacht.\n',    font='Arial',
+    text=u'Englisch:\nFirst of all we will define your optimal distance.\nTherefore you are asked to fixate the cross in the middle of the screen and report to press \'Space\' as soon as you see a switch.\nThe squares are first diverging in the vertical direction, so as soon you see horizontal movement press \'Space\'.\nThey are directly moving together, and again as soon you see a switch, so a movement into vertical direction, press \'Space\'.\nDo not press \'Space\' after that but wait instead for the end of the routine.\nPress "Space" to continue\n\nDeutsch: \nZu aller erst werden wir Ihre optimale Distanz der Quadrate bestimmen.\nDazu fixieren Sie bitte den Fixpunkt in der Mitte aber achten Sie trotzdem auf die vier Quadrate.\nSie werden beim ersten Blick eine bestimmte Bewegungsrichtung wahrnehmen, entweder horizontal oder vertikal.\nDie Quadrate werden in der vertikalen Richtung auseinandergehen und sobald Sie einen Wechsel in ihrer wahrgenommenen Bewegung wahrnehmen, dr\xfccken sie schnellstm\xf6glich die \'Leertaste\'. \nDas Ganze wird dann ebenfalls f\xfcr das Zusammenlaufen der Quarate in der vertikalen Richtung gemacht.\n',    font='Arial',
     pos=[0, 0], height=0.05, wrapWidth=None,
     color='white', colorSpace='rgb', opacity=1,
     depth=-1.0)
@@ -71,12 +71,14 @@ resetRoutineClock = core.Clock()
 
 # Initialize components for Routine "DistanceCheck"
 DistanceCheckClock = core.Clock()
-ScreenH = 34.5
-ScreenV = 19
+with open("./ScreenRatio") as f:
+    content = f.readlines()
 
+ScreenH = float(content[0])
+ScreenV = float(content[1])
 
 YPOS = 0.1
-XPOS = 0.3
+XPOS = 9.08/(ScreenH/2)
 
 
 demValues = []
@@ -165,7 +167,7 @@ text_4 = visual.TextStim(win=win, ori=0, name='text_4',
     pos=[0, 0], height=0.1, wrapWidth=None,
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
-finalText = "Thanks %s! \n Now we are set for the real experiment!"% expInfo['participant']
+finalText = "Thank You! \n Now we are set for the real experiment! \n Danke, jetzt koennen wir zum echten Experiment ueber gehen."
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
